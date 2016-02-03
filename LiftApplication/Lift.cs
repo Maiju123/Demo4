@@ -10,7 +10,22 @@ namespace LiftApplication
     {   // field variables
         private readonly int maxFloor = 5;
         private readonly int minFloor = 1;
+        public int floor;
+        //floor properties
 
-        //floor property
+    public int Floor
+        {
+            get {
+                return floor;
+            }
+            set {
+                if (value > 5) floor = value;
+                else
+                {
+                    Console.WriteLine("Not enough Floors! Choose floor between 1 and 5.");
+                    floor = maxFloor;
+                }
+            }
+        }
     }
 }
