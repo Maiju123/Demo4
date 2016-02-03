@@ -10,6 +10,8 @@ namespace LiftApplication
     {
         static void Main(string[] args)
         {
+            Lift lift = new Lift();
+            lift.PrintData();
         }
     }
 }
