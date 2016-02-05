@@ -9,21 +9,31 @@ namespace LiftApplication
     class Lift
     {   // field variables
         private readonly int maxFloor = 5;
-        private readonly int minFloor = 1;
+        private readonly int minFloor = 0;
         public int floor;
         //floor properties
 
-    public int Floor
+        public int Floor
         {
-            get {
+            get
+            {
                 return floor;
             }
-            set {
-                if (value > 5) floor = value;
-                else
+            set
+            {
+                if (value > maxFloor)
                 {
                     Console.WriteLine("Not enough Floors! Choose floor between 1 and 5.");
                     floor = maxFloor;
+                }
+                else if (value < minFloor)
+                {
+                    Console.WriteLine("There is no floors under 1! Choose floor between 1 and 5!");
+                    floor = minFloor;
+                }
+                else {
+                    floor = value;
+                    Console.WriteLine("*PIM*");
                 }
             }
         }
