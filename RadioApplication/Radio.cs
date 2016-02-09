@@ -15,6 +15,7 @@ namespace RadioApplication
         private readonly double maxFrequency = 2600.0;
         private int volume;
         private double frequency;
+        private bool radioOn;
        
 
         //default constructor
@@ -23,7 +24,22 @@ namespace RadioApplication
         }
 
         // Radio on or off
-       public bool RadioOn { get; set;} 
+       public bool RadioOn{
+             get
+             {
+                 return radioOn;
+             }
+             set {
+                 if (value == false)
+                 {
+                     Console.WriteLine("*Radio OFF*");
+                 }
+                 if (value == true)
+                 {
+                     Console.WriteLine("*Radio ON*");
+                 }
+             }
+         }
 
         //Volume property
         public int Volume {
@@ -32,6 +48,7 @@ namespace RadioApplication
                 return volume;
             }
             set {
+
                 if (value < minVolume)
                 {
                     Console.WriteLine("Radio volume cant be turned on minus level. Radio volume has to be chosen between 1 and 10.");
@@ -44,9 +61,10 @@ namespace RadioApplication
                 }
                 if (value == 0)
                 {
-                    Console.WriteLine("There is no sound in radio. Choose radio volune between 1 and 10.");
+                    Console.WriteLine("There is no sound in radio. Choose radio volume between 1 and 10.");
                     volume = value;
-                } 
+                }
+
                 else
                 {
 
@@ -63,6 +81,7 @@ namespace RadioApplication
                 return frequency;
             }
             set {
+
                 if (value < minFrequency)
                 {
                     Console.WriteLine("Radio works on frequencys between 2000.0 and 2600.0");
@@ -73,6 +92,7 @@ namespace RadioApplication
                     Console.WriteLine("Radio works on frequencys between 2000.0 and 2600.0");
                     frequency = value;
                 }
+
                 else
                 {
                     Console.WriteLine("*Frequence chosen*");
